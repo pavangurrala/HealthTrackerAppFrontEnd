@@ -1,2 +1,0 @@
-# HealthTrackerAppFrontEnd
-frontend of Healthtrackerapp
