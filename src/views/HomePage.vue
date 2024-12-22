@@ -7,7 +7,8 @@
         <h5 class="card-header">Registered Users</h5>
         <div class="card-body">
           <h5 class="card-title">{{users.length}} users</h5>
-          <a href="/users" class="btn btn-primary">More Details...</a>
+          <router-link class="btn btn-primary" to="/users">More Details...</router-link>
+<!--          <a href="/users" class="btn btn-primary">More Details...</a>-->
         </div>
       </div>
     </div>
@@ -16,7 +17,8 @@
         <h5 class="card-header">Total Activities</h5>
         <div class="card-body">
           <h5 class="card-title">{{activities.length}} activities</h5>
-          <a href="/activities" class="btn btn-primary">More Details...</a>
+          <router-link class="btn btn-primary" to="/activities">More Details...</router-link>
+<!--          <a href="/activities" class="btn btn-primary">More Details...</a>-->
         </div>
       </div>
     </div>
