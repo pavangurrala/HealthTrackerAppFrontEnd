@@ -1,6 +1,7 @@
 
 
 <template>
+  <br/>
   <div class="row">
     <div class="col">
       <div class="card">
@@ -8,7 +9,6 @@
         <div class="card-body">
           <h5 class="card-title">{{users.length}} users</h5>
           <router-link class="btn btn-primary" to="/users">More Details...</router-link>
-<!--          <a href="/users" class="btn btn-primary">More Details...</a>-->
         </div>
       </div>
     </div>
@@ -18,7 +18,48 @@
         <div class="card-body">
           <h5 class="card-title">{{activities.length}} activities</h5>
           <router-link class="btn btn-primary" to="/activities">More Details...</router-link>
-<!--          <a href="/activities" class="btn btn-primary">More Details...</a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">User Appointments</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{appointments.length}} appointments</h5>
+          <router-link class="btn btn-primary" to="/appointments">More Details...</router-link>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">User Medications</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{medications.length}} medications</h5>
+          <router-link class="btn btn-primary" to="/medications">More Details...</router-link>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">User Lab Reports</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{labreports.length}} lab reports</h5>
+          <router-link class="btn btn-primary" to="/labreports">More Details...</router-link>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">User Nutrition and Calories Tracker</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{nutritionandCalories.length}} User Nutrition and Calorie Records</h5>
+          <router-link class="btn btn-primary" to="/nutritionandcaloriestracker">More Details...</router-link>
         </div>
       </div>
     </div>
@@ -29,7 +70,11 @@ import axios from 'axios';
 export default {
   data: ()=>({
     users:[],
-    activities:[]
+    activities:[],
+    appointments:[],
+    medications:[],
+    labreports:[],
+    nutritionandCalories:[]
   }),
   methods: {
     async fetchUserData() {
@@ -69,11 +114,83 @@ export default {
       } catch (error) {
         console.error('Error fetching data:', error);
       }
-    }
+    },
+    async fetchUserAppointments(){
+      try {
+        const response = await axios({
+          method: 'GET',
+          url: 'http://localhost:7001/api/appointmentscheduler',
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          withCredentials:true
+        })
+        this.appointments = response.data
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
+    async fetchUserMedications(){
+      try {
+        const response = await axios({
+          method: 'GET',
+          url: 'http://localhost:7001/api/medicationtracker',
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          withCredentials:true
+        })
+        this.medications = response.data
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
+    async fetchUserLabReports(){
+      try {
+        const response = await axios({
+          method: 'GET',
+          url: 'http://localhost:7001/api/labreports',
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          withCredentials:true
+        })
+        this.labreports = response.data
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
+    async fetchUserNutritionandCalories(){
+      try {
+        const response = await axios({
+          method: 'GET',
+          url: 'http://localhost:7001/api/nutritionandcalories',
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          withCredentials:true
+        })
+        this.nutritionandCalories = response.data
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
   },
   mounted() {
     this.fetchUserData();
     this.fetchUserActivities();
+    this.fetchUserAppointments();
+    this.fetchUserMedications();
+    this.fetchUserLabReports();
+    this.fetchUserNutritionandCalories();
   },
   name: "HomePage",
 }
