@@ -12,6 +12,10 @@
           <li class="nav-item active"><router-link class="nav-link" to="/">Home</router-link></li>
           <li class="nav-item"><router-link class="nav-link" to="/users">Users</router-link></li>
           <li class="nav-item"><router-link class="nav-link" to="/activities">Activities</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/appointments">Appointments</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/medications">Medications</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/labreports">LabReports</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/nutritionandcaloriestracker">NutritionandCaloriesTracker</router-link></li>
         </ul>
       </div>
     </div>

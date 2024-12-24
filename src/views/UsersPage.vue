@@ -344,6 +344,7 @@ export default {
       }
     },
     async updateSearchedUser(){
+
       try{
         const headers = {
           'Content-Type': 'application/json', // Ensure this header is set
