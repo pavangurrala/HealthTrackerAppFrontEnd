@@ -216,10 +216,6 @@
             </div>
           </div>
       </div>
-
-
-
-
       </div>
       <div class="col-4">
         <div class="card">
@@ -426,7 +422,7 @@ export default {
         await this.fetchAllAppointments();
         this.cancelEdit();
       }catch(error){
-        console.error("error updating user:", error)
+        console.error("error updating appointment:", error)
         alert("Failed to update appointment. Please try again.");
       }
     },
@@ -451,7 +447,7 @@ export default {
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
-          alert("Activity Deleted Successfully");
+          alert("Appointment Deleted Successfully");
           await this.fetchAllAppointments();
         }catch(error){
           console.error("Error Deleting User:", error);
@@ -463,7 +459,7 @@ export default {
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
-          alert("Activity Deleted Successfully");
+          alert("Appointment Deleted Successfully");
           await this.fetchAllAppointments();
           await this.searchUserAppointments();
         }catch(error){

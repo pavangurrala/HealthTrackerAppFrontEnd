@@ -261,7 +261,7 @@
                     <i
                         class="bi bi-trash text-danger"
                         style="cursor: pointer"
-                        @click="deleteUser(user.id)"
+                        @click="deleteSearchUser(user.id)"
                     ></i>
                   </div>
                 </td>
@@ -367,6 +367,19 @@ export default {
           await axios.delete(`http://localhost:7001/api/users/${userId}`);
           alert("User Deleted Successfully");
           await this.fetchUserData();
+        }catch(error){
+          console.error("Error Deleting User:", error);
+          alert("failed to delete user, please try again")
+        }
+      }
+    },
+    async deleteSearchUser(userId){
+      if(confirm("Do you want to delete this user?")){
+        try{
+          await axios.delete(`http://localhost:7001/api/users/${userId}`);
+          alert("User Deleted Successfully");
+          await this.fetchUserData();
+          await this.searchUser();
         }catch(error){
           console.error("Error Deleting User:", error);
           alert("failed to delete user, please try again")
