@@ -13,7 +13,8 @@ export default {
       userID:null,
       userActivities:[],
       calories:[],
-      description:[]
+      description:[],
+      duration:[]
     }
   },
   methods:{
@@ -22,6 +23,7 @@ export default {
           const response = await axios({
             method: 'GET',
             url: `http://localhost:7001/api/activities/${this.userID}`,
+            //url: `https://healthtrackerapp-production.up.railway.app/api/activities/${this.userID}`,
             headers: {
               "Access-Control-Allow-Origin": "*",
               "Content-Type": "application/json",
@@ -34,6 +36,7 @@ export default {
           })).sort((a,b)=>a.id - b.id)
           this.description = this.userActivities.map(activity => activity.description)
           this.calories = this.userActivities.map(activity => activity.calories)
+          this.duration = this.userActivities.map(activity => activity.duration)
           Chart.register(...registerables);
           const chartInstance = ref(null);
           const Description = this.description
@@ -46,16 +49,30 @@ export default {
               labels: Description,
               datasets: [
                 {
-                  label: 'Activities',
+                  label: 'Calories Burnt',
                   data: calories,
                   borderColor: 'rgba(75, 192, 192, 1)',
                   borderWidth: 2,
                   fill: false,
+                  tension: 0.4,
+                },
+                {
+                  label: 'Duration',
+                  data: this.duration,
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  borderWidth: 2,
+                  fill: false,
+                  tension: 0.4,
                 },
               ],
             },
             options: {
               responsive: true,
+              plugins: {
+                legend: {
+                  position: 'top',
+                },
+              },
               scales: {
                 x: {
                   type:'category',
@@ -68,7 +85,7 @@ export default {
                   type:'linear',
                   title: {
                     display: true,
-                    text: 'Calories Burnt',
+                    text: 'Duration (In Mins)',
                   },
                   beginAtZero: true,
                 },
