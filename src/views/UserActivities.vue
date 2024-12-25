@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <h3 class="text-center">User Activities</h3>
     <div class="row">
-      <div class="col-8" style="height: 770px; overflow-y: auto;">
+      <div class="col-7" style="height: 770px; overflow-y: auto;">
         <table class="table table-striped float-start" >
           <thead>
           <tr>
@@ -82,7 +82,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-6">
+      <div class="col-5">
         <div class="card">
           <div class="card-header"><h5>Add Activity</h5></div>
           <div class="card-body">
