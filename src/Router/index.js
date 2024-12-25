@@ -6,6 +6,7 @@ import UserAppointments from "@/views/AppointmentsPage.vue";
 import UserMedications from "@/views/MedicationsPage.vue";
 import UserLabReports from "@/views/LabReportsPage.vue";
 import UserNutritionandCalories from "@/views/NutritionandCaloriesPage.vue";
+import OverViewPage from "@/views/OverviewPage.vue"
 const routes =[
     {path:'/', name:"Home", component: HomePage},
     {path:'/users', name:"Users",component: UsersPage},
@@ -14,6 +15,7 @@ const routes =[
     {path: '/medications', name:"Medications", component: UserMedications},
     {path: '/labreports', name:"LabReports", component: UserLabReports},
     {path: '/nutritionandcaloriestracker', name:"NutritionandCalories", component: UserNutritionandCalories},
+    {path: '/overview/:userID', name:"OverViewPage", component: OverViewPage}
 ];
 
 const router = createRouter({

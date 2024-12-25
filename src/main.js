@@ -5,5 +5,6 @@ import '@popperjs/core';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import router from './Router'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'chart.js'
 createApp(App).use(router).mount('#app')
 

@@ -1,6 +1,3 @@
-
-
-
 <template>
   <div class="container-fluid" >
     <h3 class="text-center">User Management</h3>
@@ -27,7 +24,9 @@
                 <input type="text" class="form-control" v-model="editableUser.name"/>
               </div>
               <div v-else>
-                {{user.name}}
+                <router-link  :to="{ name: 'OverViewPage', params: { userID: user.id } }">
+                  {{user.name}}
+                </router-link>
               </div>
             </td>
             <td>

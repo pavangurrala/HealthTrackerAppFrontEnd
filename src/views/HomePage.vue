@@ -74,14 +74,15 @@ export default {
     appointments:[],
     medications:[],
     labreports:[],
-    nutritionandCalories:[]
+    nutritionandCalories:[],
   }),
   methods: {
     async fetchUserData() {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/users',
+          //url: 'http://localhost:7001/api/users',
+          url:'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -102,7 +103,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/activities',
+          //url: 'http://localhost:7001/api/activities',
+          url: 'https://healthtrackerapp-production.up.railway.app/api/activities',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -119,7 +121,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/appointmentscheduler',
+          //url: 'http://localhost:7001/api/appointmentscheduler',
+          url: 'https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -136,7 +139,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/medicationtracker',
+          //url: 'http://localhost:7001/api/medicationtracker',
+          url: 'https://healthtrackerapp-production.up.railway.app/api/medicationtracker',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -153,7 +157,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/labreports',
+          //url: 'http://localhost:7001/api/labreports',
+          url: 'https://healthtrackerapp-production.up.railway.app/api/labreports',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -170,7 +175,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/nutritionandcalories',
+          //url: 'http://localhost:7001/api/nutritionandcalories',
+          url: 'https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
