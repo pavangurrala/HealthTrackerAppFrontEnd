@@ -22,8 +22,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/nutritionandcalories/${this.userID}`,
-          //url: `https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.userID}`,
+          //url: `http://localhost:7001/api/nutritionandcalories/${this.userID}`,
+          url: `https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
