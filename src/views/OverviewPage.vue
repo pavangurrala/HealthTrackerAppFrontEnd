@@ -600,6 +600,8 @@ export default {
       isCollapsedMedications: false,
       isCollapsedLabreports: false,
       isCollapsedNCRecords: false,
+      apibaseUrl : 'https://healthtrackerapp-production.up.railway.app',
+      //apibaseUrl : 'http://localhost:7001',
     }
   },
   created() {
@@ -611,7 +613,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/users/${this.userID}`,
+          url: `${this.apibaseUrl}/api/users/${this.userID}`,
           //url: `https://healthtrackerapp-production.up.railway.app/api/users/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -629,7 +631,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/activities/${this.userID}`,
+          url: `${this.apibaseUrl}/api/activities/${this.userID}`,
           //url: `https://healthtrackerapp-production.up.railway.app/api/activities/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -651,7 +653,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/appointmentscheduler/${this.userID}`,
+          url: `${this.apibaseUrl}/api/appointmentscheduler/${this.userID}`,
           //url: `https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -673,7 +675,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/medicationtracker/${this.userID}`,
+          url: `${this.apibaseUrl}/api/medicationtracker/${this.userID}`,
           //url: `https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -695,7 +697,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/labreports/${this.userID}`,
+          url: `${this.apibaseUrl}/api/labreports/${this.userID}`,
           //url: `https://healthtrackerapp-production.up.railway.app/api/labreports/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -717,7 +719,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: `http://localhost:7001/api/nutritionandcalories/${this.userID}`,
+          url: `${this.apibaseUrl}/api/nutritionandcalories/${this.userID}`,
           //url: `https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.userID}`,
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -741,7 +743,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/activities/${this.editableActivity.id}`, this.editableActivity, {headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/activities/${this.editableActivity.id}`, this.editableActivity, {headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.editableActivity.id}`, this.editableActivity, {headers});
         alert("User Activity Updated Successfully");
         console.log(response.data)
@@ -758,7 +760,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments, {headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments, {headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments, {headers});
         alert("User Appointment Updated Successfully");
         console.log(response.data)
@@ -775,7 +777,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications, {headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications, {headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications, {headers});
         alert("User Medication Updated Successfully");
         console.log(response.data)
@@ -792,7 +794,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/labreports/${this.editableLabreports.id}`, this.editableLabreports, {headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/labreports/${this.editableLabreports.id}`, this.editableLabreports, {headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/labreports/${this.editableLabreports.id}`, this.editableLabreports, {headers});
         alert("User LabReport Updated Successfully");
         console.log(response.data)
@@ -809,7 +811,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords, {headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords, {headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords, {headers});
         alert("User Nutrient and Calorie Record Updated Successfully");
         console.log(response.data)
@@ -823,7 +825,7 @@ export default {
     async deleteLabReport(labReportId) {
       if (confirm("Do you want to delete this LabReport for this user?")) {
         try {
-          await axios.delete(`http://localhost:7001/api/labreports/${labReportId}`);
+          await axios.delete(`${this.apibaseUrl}/api/labreports/${labReportId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/labreports/${labReportId}`);
           alert("LabReport Deleted Successfully");
           await this.fetchUserLabReports();
@@ -836,7 +838,7 @@ export default {
     async deleteSearchActivity(activityId) {
       if (confirm("Do you want to delete this Activity for this user?")) {
         try {
-          await axios.delete(`http://localhost:7001/api/activities/${activityId}`);
+          await axios.delete(`${this.apibaseUrl}/api/activities/${activityId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/activities/${activityId}`);
           alert("Activity Deleted Successfully");
           await this.fetchUserActivities();
@@ -849,7 +851,7 @@ export default {
     async deleteSearchAppointment(appointmentId) {
       if (confirm("Do you want to delete this Activity for this user?")) {
         try {
-          await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
+          await axios.delete(`${this.apibaseUrl}/api/appointmentscheduler/${appointmentId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);
           alert("Appointment Deleted Successfully");
           await this.fetchUserAppointments();
@@ -862,7 +864,7 @@ export default {
     async deleteMedication(medicationId) {
       if (confirm("Do you want to delete this Medication for this user?")) {
         try {
-          await axios.delete(`http://localhost:7001/api/medicationtracker/${medicationId}`);
+          await axios.delete(`${this.apibaseUrl}/api/medicationtracker/${medicationId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${medicationId}`);
           alert("Medication Deleted Successfully");
           await this.fetchUserMedications();
@@ -875,7 +877,7 @@ export default {
     async deleteNCRecord(ncRecordId) {
       if (confirm("Do you want to delete this LabReport for this user?")) {
         try {
-          await axios.delete(`http://localhost:7001/api/nutritionandcalories/${ncRecordId}`);
+          await axios.delete(`${this.apibaseUrl}/api/nutritionandcalories/${ncRecordId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${ncRecordId}`);
           alert("User Nutrient and Calorie Record Deleted Successfully");
           await this.fetchUserNCRecords();

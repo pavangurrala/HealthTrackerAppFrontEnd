@@ -335,6 +335,8 @@ export default {
       showTable:false,
       userAppointmentDetails: {},
       actiontype:"",
+      apibaseUrl : 'https://healthtrackerapp-production.up.railway.app',
+      //apibaseUrl : 'http://localhost:7001',
     }
   },
   methods:{
@@ -343,7 +345,7 @@ export default {
         const response = await axios({
           method: "GET",
 
-          url: 'http://localhost:7001/api/appointmentscheduler',
+          url: `${this.apibaseUrl}/api/appointmentscheduler`,
           //url: 'https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler',
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -364,7 +366,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/users',
+          url: `${this.apibaseUrl}/api/users`,
           //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -390,8 +392,7 @@ export default {
         };
         switch (this.actiontype){
           case "add":
-            //https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler
-            response = await axios.post("http://localhost:7001/api/appointmentscheduler", {
+            response = await axios.post(`${this.apibaseUrl}/api/appointmentscheduler`, {
               appointmentstartdatetime: this.data.appointmentstartdatetime,
               appointmentendtime: this.data.appointmentendtime,
               appointmenttype: this.data.appointmenttype,
@@ -420,7 +421,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
         alert("User Appointment Updated Successfully");
         console.log(response.data)
@@ -437,7 +438,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
         alert("User Appointment Updated Successfully");
         console.log(response.data)
@@ -452,7 +453,7 @@ export default {
     async deleteAppointment(appointmentId){
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
+          await axios.delete(`${this.apibaseUrl}/api/appointmentscheduler/${appointmentId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);
           alert("Appointment Deleted Successfully");
           await this.fetchAllAppointments();
@@ -465,7 +466,7 @@ export default {
     async deleteSearchAppointment(appointmentId){
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
+          await axios.delete(`${this.apibaseUrl}/api/appointmentscheduler/${appointmentId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);
           alert("Appointment Deleted Successfully");
           await this.fetchAllAppointments();
@@ -486,7 +487,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.get(`http://localhost:7001/api/appointmentscheduler/${this.selectedUserID}`,{headers});
+        const response = await axios.get(`${this.apibaseUrl}/api/appointmentscheduler/${this.selectedUserID}`,{headers});
         //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.selectedUserID}`,{headers});
         this.userAppointmentDetails = response.data.map((data) =>({
           ...data,
