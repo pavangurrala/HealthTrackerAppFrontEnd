@@ -84,7 +84,6 @@ export default {
         const response = await axios({
           method: 'GET',
           url: `${this.apibaseUrl}/api/users`,
-          //url:'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -106,7 +105,6 @@ export default {
         const response = await axios({
           method: 'GET',
           url: `${this.apibaseUrl}/api/activities`,
-          //url: 'https://healthtrackerapp-production.up.railway.app/api/activities',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -124,7 +122,6 @@ export default {
         const response = await axios({
           method: 'GET',
           url: `${this.apibaseUrl}/api/appointmentscheduler`,
-          //url: 'https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -142,7 +139,6 @@ export default {
         const response = await axios({
           method: 'GET',
           url: `${this.apibaseUrl}/api/medicationtracker`,
-          //url: 'https://healthtrackerapp-production.up.railway.app/api/medicationtracker',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -160,7 +156,6 @@ export default {
         const response = await axios({
           method: 'GET',
           url: `${this.apibaseUrl}/api/labreports`,
-          //url: 'https://healthtrackerapp-production.up.railway.app/api/labreports',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -178,7 +173,6 @@ export default {
         const response = await axios({
           method: 'GET',
           url: `${this.apibaseUrl}/api/nutritionandcalories`,
-          //url: 'https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",

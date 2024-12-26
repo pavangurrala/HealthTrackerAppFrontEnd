@@ -278,6 +278,8 @@ export default {
       showTable:false,
       userNCDetails: {},
       actiontype:"",
+      apibaseUrl : 'https://healthtrackerapp-production.up.railway.app',
+      //apibaseUrl : 'http://localhost:7001',
     }
   },
   methods:{
@@ -285,7 +287,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/nutritionandcalories',
+          url: `${this.apibaseUrl}/api/nutritionandcalories`,
           //url: 'https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories',
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -306,7 +308,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/users',
+          url: `${this.apibaseUrl}/api/users`,
           //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -333,7 +335,7 @@ export default {
         switch (this.actiontype){
           case "add":
             //https://healthtrackerapp-production.up.railway.app
-            response = await axios.post("http://localhost:7001/api/nutritionandcalories", {
+            response = await axios.post(`${this.apibaseUrl}/api/nutritionandcalories`, {
               foodtaken: this.data.foodtaken,
               caloriecount: this.data.caloriecount,
               foodtakentime: this.data.foodtakentime,
@@ -361,7 +363,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
         alert("User Nutrient and Calorie Record Updated Successfully");
         console.log(response.data)
@@ -378,7 +380,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
         alert("User Nutrient and Calorie Record Updated Successfully");
         console.log(response.data)
@@ -393,7 +395,7 @@ export default {
     async deleteNCRecord(ncRecordId){
       if(confirm("Do you want to delete this LabReport for this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/nutritionandcalories/${ncRecordId}`);
+          await axios.delete(`${this.apibaseUrl}/api/nutritionandcalories/${ncRecordId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${ncRecordId}`);
           alert("User Nutrient and Calorie Record Deleted Successfully");
           await this.fetchAllUserNCRecords();
@@ -406,7 +408,7 @@ export default {
     async deleteSearchNCRecord(ncRecordId){
       if(confirm("Do you want to delete this LabReport for this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/nutritionandcalories/${ncRecordId}`);
+          await axios.delete(`${this.apibaseUrl}/api/nutritionandcalories/${ncRecordId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${ncRecordId}`);
           alert("User Nutrient and Calorie Record Deleted Successfully");
           await this.fetchAllUserNCRecords();
@@ -427,7 +429,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.get(`http://localhost:7001/api/nutritionandcalories/${this.selectedUserID}`,{headers});
+        const response = await axios.get(`${this.apibaseUrl}/api/nutritionandcalories/${this.selectedUserID}`,{headers});
         //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${this.selectedUserID}`,{headers});
         this.userNCDetails = response.data.map((data) =>({
           ...data,

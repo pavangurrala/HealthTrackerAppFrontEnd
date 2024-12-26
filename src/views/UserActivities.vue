@@ -251,6 +251,8 @@ export default {
       showTable:false,
       useractivityDetails: {},
       actiontype:"",
+      apibaseUrl : 'https://healthtrackerapp-production.up.railway.app',
+      //apibaseUrl : 'http://localhost:7001',
     }
   },
   computed:{
@@ -264,7 +266,7 @@ export default {
           const response = await axios({
             method: "GET",
 
-            url: 'http://localhost:7001/api/activities',
+            url: `${this.apibaseUrl}/api/activities`,
             //url: 'https://healthtrackerapp-production.up.railway.app/api/activities',
             headers: {
               "Access-Control-Allow-Origin": "*",
@@ -301,7 +303,7 @@ export default {
         switch (this.actiontype){
           case "add":
             //https://healthtrackerapp-production.up.railway.app
-            response = await axios.post("http://localhost:7001/api/activities", {
+            response = await axios.post(`${this.apibaseUrl}/api/activities`, {
               description: this.data.description,
               duration: this.data.duration,
               calories: this.data.calories,
@@ -328,7 +330,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
         alert("User Activity Updated Successfully");
         console.log(response.data)
@@ -345,7 +347,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
         //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
         alert("User Activity Updated Successfully");
         console.log(response.data)
@@ -360,7 +362,7 @@ export default {
     async deleteActivity(activityId){
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/activities/${activityId}`);
+          await axios.delete(`${this.apibaseUrl}/api/activities/${activityId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/activities/${activityId}`);
           alert("Activity Deleted Successfully");
           await this.fetchAllActivities();
@@ -373,7 +375,7 @@ export default {
     async deleteSearchActivity(activityId){
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/activities/${activityId}`);
+          await axios.delete(`${this.apibaseUrl}/api/activities/${activityId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/activities/${activityId}`);
           alert("Activity Deleted Successfully");
           await this.fetchAllActivities();
@@ -388,7 +390,7 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/users',
+          url: `${this.apibaseUrl}/api/users`,
           //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -416,7 +418,7 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.get(`http://localhost:7001/api/activities/${this.selectedUserID}`,{headers});
+        const response = await axios.get(`${this.apibaseUrl}/api/activities/${this.selectedUserID}`,{headers});
         //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.selectedUserID}`,{headers});
         this.useractivityDetails = response.data
         console.log(this.useractivityDetails)
