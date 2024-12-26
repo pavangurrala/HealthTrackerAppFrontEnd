@@ -288,6 +288,8 @@ export default {
       userDetails: {},
       userDataF:[],
       actiontype:"",
+      apibaseUrl : 'https://healthtrackerapp-production.up.railway.app',
+      //apibaseUrl : 'http://localhost:7001',
     };
   },
   computed:{
@@ -300,7 +302,8 @@ export default {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'http://localhost:7001/api/users',
+          url: `${this.apibaseUrl}/api/users`,
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -332,7 +335,8 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/users/${this.editableUser.id}`, this.editableUser,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/users/${this.editableUser.id}`, this.editableUser,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/users/${this.editableUser.id}`, this.editableUser,{headers});
         alert("User Updated Successfully");
         console.log(response.data)
         await this.fetchUserData();
@@ -349,7 +353,8 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.patch(`http://localhost:7001/api/users/${this.editableUser.id}`, this.editableUser,{headers});
+        const response = await axios.patch(`${this.apibaseUrl}/api/users/${this.editableUser.id}`, this.editableUser,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/users/${this.editableUser.id}`, this.editableUser,{headers});
         alert("User Updated Successfully");
         console.log(response.data)
         await this.fetchUserData();
@@ -363,7 +368,8 @@ export default {
     async deleteUser(userId){
       if(confirm("Do you want to delete this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/users/${userId}`);
+          await axios.delete(`${this.apibaseUrl}/api/users/${userId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/users/${userId}`);
           alert("User Deleted Successfully");
           await this.fetchUserData();
         }catch(error){
@@ -375,7 +381,8 @@ export default {
     async deleteSearchUser(userId){
       if(confirm("Do you want to delete this user?")){
         try{
-          await axios.delete(`http://localhost:7001/api/users/${userId}`);
+          await axios.delete(`${this.apibaseUrl}/api/users/${userId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/users/${userId}`);
           alert("User Deleted Successfully");
           await this.fetchUserData();
           await this.searchUser();
@@ -395,7 +402,8 @@ export default {
           'Content-Type': 'application/json', // Ensure this header is set
           "Access-Control-Allow-Origin": "*",
         };
-        const response = await axios.get(`http://localhost:7001/api/users/${this.selectedUserID}`,{headers});
+        const response = await axios.get(`${this.apibaseUrl}/api/users/${this.selectedUserID}`,{headers});
+        //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/users/${this.selectedUserID}`,{headers});
         this.userDetails = response.data
         console.log(this.userDetails)
         this.showTable = true;
@@ -414,7 +422,8 @@ export default {
         };
         switch (this.actiontype){
           case "add":
-            response = await axios.post("http://localhost:7001/api/users", {
+            //https://healthtrackerapp-production.up.railway.app/api/users
+            response = await axios.post(`${this.apibaseUrl}/api/users`, {
               id:this.data.id,
               name: this.data.name,
               email: this.data.email,
