@@ -236,6 +236,7 @@ export default {
         const response = await axios({
           method: 'GET',
           url: 'http://localhost:7001/api/labreports',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/labreports',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -256,6 +257,7 @@ export default {
         const response = await axios({
           method: 'GET',
           url: 'http://localhost:7001/api/users',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -280,6 +282,7 @@ export default {
         };
         switch (this.actiontype){
           case "add":
+            //https://healthtrackerapp-production.up.railway.app/api/labreports
             response = await axios.post("http://localhost:7001/api/labreports", {
               reportname: this.data.reportname,
               reporttype: this.data.reporttype,
@@ -307,6 +310,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/labreports/${this.editableLabreports.id}`, this.editableLabreports,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/labreports/${this.editableLabreports.id}`, this.editableLabreports,{headers});
         alert("User LabReport Updated Successfully");
         console.log(response.data)
         await this.fetchAllUserLabReports();
@@ -323,6 +327,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/labreports/${this.editableLabreports.id}`, this.editableLabreports,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/labreports/${this.editableLabreports.id}`, this.editableLabreports,{headers});
         alert("User LabReport Updated Successfully");
         console.log(response.data)
         await this.fetchAllUserLabReports();
@@ -337,6 +342,7 @@ export default {
       if(confirm("Do you want to delete this LabReport for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/labreports/${labReportId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/labreports/${labReportId}`);
           alert("LabReport Deleted Successfully");
           await this.fetchAllUserLabReports();
         }catch(error){
@@ -349,6 +355,7 @@ export default {
       if(confirm("Do you want to delete this LabReport for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/labreports/${labReportId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/labreports/${labReportId}`);
           alert("LabReport Deleted Successfully");
           await this.fetchAllUserLabReports();
           await this.searchUserLabReports();
@@ -369,6 +376,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`http://localhost:7001/api/labreports/${this.selectedUserID}`,{headers});
+        //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/labreports/${this.selectedUserID}`,{headers});
         this.userLabReportDetails = response.data.map((data) =>({
           ...data,
           id:Number(data.id)

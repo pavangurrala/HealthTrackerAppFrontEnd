@@ -263,7 +263,9 @@ export default {
       try{
           const response = await axios({
             method: "GET",
+
             url: 'http://localhost:7001/api/activities',
+            //url: 'https://healthtrackerapp-production.up.railway.app/api/activities',
             headers: {
               "Access-Control-Allow-Origin": "*",
               "Content-Type": "application/json",
@@ -298,6 +300,7 @@ export default {
         };
         switch (this.actiontype){
           case "add":
+            //https://healthtrackerapp-production.up.railway.app
             response = await axios.post("http://localhost:7001/api/activities", {
               description: this.data.description,
               duration: this.data.duration,
@@ -326,6 +329,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
         alert("User Activity Updated Successfully");
         console.log(response.data)
         await this.fetchAllActivities();
@@ -342,6 +346,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
         alert("User Activity Updated Successfully");
         console.log(response.data)
         await this.fetchAllActivities();
@@ -356,6 +361,7 @@ export default {
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/activities/${activityId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/activities/${activityId}`);
           alert("Activity Deleted Successfully");
           await this.fetchAllActivities();
         }catch(error){
@@ -368,6 +374,7 @@ export default {
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/activities/${activityId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/activities/${activityId}`);
           alert("Activity Deleted Successfully");
           await this.fetchAllActivities();
           await this.searchUserActivity();
@@ -382,6 +389,7 @@ export default {
         const response = await axios({
           method: 'GET',
           url: 'http://localhost:7001/api/users',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -409,6 +417,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`http://localhost:7001/api/activities/${this.selectedUserID}`,{headers});
+        //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/activities/${this.selectedUserID}`,{headers});
         this.useractivityDetails = response.data
         console.log(this.useractivityDetails)
         this.showTable = true;

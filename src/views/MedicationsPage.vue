@@ -261,6 +261,7 @@ export default {
         const response = await axios({
           method: 'GET',
           url: 'http://localhost:7001/api/medicationtracker',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/medicationtracker',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -281,6 +282,7 @@ export default {
         const response = await axios({
           method: 'GET',
           url: 'http://localhost:7001/api/users',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -305,6 +307,7 @@ export default {
         };
         switch (this.actiontype){
           case "add":
+            //https://healthtrackerapp-production.up.railway.app/api/medicationtracker
             response = await axios.post("http://localhost:7001/api/medicationtracker", {
               medicinename: this.data.medicinename,
               datetimeofintake: this.data.datetimeofintake,
@@ -333,6 +336,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications,{headers});
         alert("User Medication Updated Successfully");
         console.log(response.data)
         await this.fetchAllUserMedications();
@@ -349,6 +353,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications,{headers});
         alert("User Medication Updated Successfully");
         console.log(response.data)
         await this.fetchAllUserMedications();
@@ -363,6 +368,7 @@ export default {
       if(confirm("Do you want to delete this Medication for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/medicationtracker/${medicationId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${medicationId}`);
           alert("Medication Deleted Successfully");
           await this.fetchAllUserMedications();
         }catch(error){
@@ -375,6 +381,7 @@ export default {
       if(confirm("Do you want to delete this Medication for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/medicationtracker/${medicationId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${medicationId}`);
           alert("Medication Deleted Successfully");
           await this.fetchAllUserMedications();
           await this.searchUserMedications();
@@ -395,6 +402,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`http://localhost:7001/api/medicationtracker/${this.selectedUserID}`,{headers});
+        //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/medicationtracker/${this.selectedUserID}`,{headers});
         this.userMedicationDetails = response.data.map((data) =>({
           ...data,
           id:Number(data.id)

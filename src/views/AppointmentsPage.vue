@@ -342,7 +342,9 @@ export default {
       try{
         const response = await axios({
           method: "GET",
+
           url: 'http://localhost:7001/api/appointmentscheduler',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -363,6 +365,7 @@ export default {
         const response = await axios({
           method: 'GET',
           url: 'http://localhost:7001/api/users',
+          //url: 'https://healthtrackerapp-production.up.railway.app/api/users',
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
@@ -387,6 +390,7 @@ export default {
         };
         switch (this.actiontype){
           case "add":
+            //https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler
             response = await axios.post("http://localhost:7001/api/appointmentscheduler", {
               appointmentstartdatetime: this.data.appointmentstartdatetime,
               appointmentendtime: this.data.appointmentendtime,
@@ -417,6 +421,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
         alert("User Appointment Updated Successfully");
         console.log(response.data)
         await this.fetchAllAppointments();
@@ -433,6 +438,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`http://localhost:7001/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
+        //const response = await axios.patch(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
         alert("User Appointment Updated Successfully");
         console.log(response.data)
         await this.fetchAllAppointments();
@@ -447,6 +453,7 @@ export default {
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);
           alert("Appointment Deleted Successfully");
           await this.fetchAllAppointments();
         }catch(error){
@@ -459,6 +466,7 @@ export default {
       if(confirm("Do you want to delete this Activity for this user?")){
         try{
           await axios.delete(`http://localhost:7001/api/appointmentscheduler/${appointmentId}`);
+          //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);
           alert("Appointment Deleted Successfully");
           await this.fetchAllAppointments();
           await this.searchUserAppointments();
@@ -479,6 +487,7 @@ export default {
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`http://localhost:7001/api/appointmentscheduler/${this.selectedUserID}`,{headers});
+        //const response = await axios.get(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${this.selectedUserID}`,{headers});
         this.userAppointmentDetails = response.data.map((data) =>({
           ...data,
           id:Number(data.id)
