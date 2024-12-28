@@ -393,7 +393,7 @@ export default {
       }
     },
     async deleteNCRecord(ncRecordId){
-      if(confirm("Do you want to delete this LabReport for this user?")){
+      if(confirm("Do you want to delete this NCRecord for this user?")){
         try{
           await axios.delete(`${this.apibaseUrl}/api/nutritionandcalories/${ncRecordId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${ncRecordId}`);
@@ -406,7 +406,7 @@ export default {
       }
     },
     async deleteSearchNCRecord(ncRecordId){
-      if(confirm("Do you want to delete this LabReport for this user?")){
+      if(confirm("Do you want to delete this NCRecord for this user?")){
         try{
           await axios.delete(`${this.apibaseUrl}/api/nutritionandcalories/${ncRecordId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/nutritionandcalories/${ncRecordId}`);

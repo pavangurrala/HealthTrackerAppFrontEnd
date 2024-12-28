@@ -451,7 +451,7 @@ export default {
       }
     },
     async deleteAppointment(appointmentId){
-      if(confirm("Do you want to delete this Activity for this user?")){
+      if(confirm("Do you want to delete this Appointment for this user?")){
         try{
           await axios.delete(`${this.apibaseUrl}/api/appointmentscheduler/${appointmentId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);
@@ -464,7 +464,7 @@ export default {
       }
     },
     async deleteSearchAppointment(appointmentId){
-      if(confirm("Do you want to delete this Activity for this user?")){
+      if(confirm("Do you want to delete this Appointment for this user?")){
         try{
           await axios.delete(`${this.apibaseUrl}/api/appointmentscheduler/${appointmentId}`);
           //await axios.delete(`https://healthtrackerapp-production.up.railway.app/api/appointmentscheduler/${appointmentId}`);

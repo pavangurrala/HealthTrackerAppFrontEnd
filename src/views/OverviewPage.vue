@@ -13,34 +13,62 @@
             <div class="card-body">
               <div class="d-flex align-items-center mb3">
                 <form>
-                  <div class="row mb-3">
-                    <label for="id" class="col-sm-3 col-form-label">User ID</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="id" placeholder="Enter ID" v-model="userData.id"
-                             autocomplete="id" disabled>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="row mb-3">
+                        <label for="id" class="col-sm-3 col-form-label">User ID</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="id" placeholder="Enter ID" v-model="userData.id"
+                                 autocomplete="id" disabled>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="name" class="col-sm-3 col-form-label">Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="name" placeholder="Enter the User Name"
+                                 v-model="userData.name" autocomplete="name" required>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="email" placeholder="Enter the User Email"
+                                 v-model="userData.email" autocomplete="email" required>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="dateofbirth" class="col-sm-3 col-form-label">D.O.B</label>
+                        <div class="col-sm-9">
+                          <input type="date" class="form-control" id="dateofbirth" placeholder="Enter the User dateofbirth"
+                                 v-model="userData.dateofbirth" autocomplete="dateofbirth" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-3">
+                        <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+                        <div class="col-sm-9">
+                          <input type="gender" class="form-control" id="gender" placeholder="Enter the User Gender"
+                                 v-model="userData.gender" autocomplete="gender" required>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="height" class="col-sm-3 col-form-label">Gender</label>
+                        <div class="col-sm-9">
+                          <input type="gender" class="form-control" id="height" placeholder="Enter the User Height"
+                                 v-model="userData.height" autocomplete="height" required>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="weight" class="col-sm-3 col-form-label">Gender</label>
+                        <div class="col-sm-9">
+                          <input type="weight" class="form-control" id="weight" placeholder="Enter the User Weight"
+                                 v-model="userData.weight" autocomplete="weight" required>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="row mb-3">
-                    <label for="name" class="col-sm-3 col-form-label">Name</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="name" placeholder="Enter the User Name"
-                             v-model="userData.name" autocomplete="name" required>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="email" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="email" placeholder="Enter the User Email"
-                             v-model="userData.email" autocomplete="email" required>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="dateofbirth" class="col-sm-3 col-form-label">D.O.B</label>
-                    <div class="col-sm-9">
-                      <input type="date" class="form-control" id="dateofbirth" placeholder="Enter the User dateofbirth"
-                             v-model="userData.dateofbirth" autocomplete="dateofbirth" required>
-                    </div>
-                  </div>
+
                 </form>
               </div>
             </div>
