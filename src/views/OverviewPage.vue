@@ -26,21 +26,21 @@
                         <label for="name" class="col-sm-3 col-form-label">Name</label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="name" placeholder="Enter the User Name"
-                                 v-model="userData.name" autocomplete="name" required>
+                                 v-model="userData.name" autocomplete="name" required disabled>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <label for="email" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="email" placeholder="Enter the User Email"
-                                 v-model="userData.email" autocomplete="email" required>
+                                 v-model="userData.email" autocomplete="email" required disabled>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <label for="dateofbirth" class="col-sm-3 col-form-label">D.O.B</label>
                         <div class="col-sm-9">
                           <input type="date" class="form-control" id="dateofbirth" placeholder="Enter the User dateofbirth"
-                                 v-model="userData.dateofbirth" autocomplete="dateofbirth" required>
+                                 v-model="userData.dateofbirth" autocomplete="dateofbirth" required disabled>
                         </div>
                       </div>
                     </div>
@@ -49,26 +49,25 @@
                         <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                         <div class="col-sm-9">
                           <input type="gender" class="form-control" id="gender" placeholder="Enter the User Gender"
-                                 v-model="userData.gender" autocomplete="gender" required>
+                                 v-model="userData.gender" autocomplete="gender" required disabled>
                         </div>
                       </div>
                       <div class="row mb-3">
-                        <label for="height" class="col-sm-3 col-form-label">Gender</label>
+                        <label for="height" class="col-sm-3 col-form-label">Height</label>
                         <div class="col-sm-9">
                           <input type="gender" class="form-control" id="height" placeholder="Enter the User Height"
-                                 v-model="userData.height" autocomplete="height" required>
+                                 v-model="userData.height" autocomplete="height" required disabled>
                         </div>
                       </div>
                       <div class="row mb-3">
-                        <label for="weight" class="col-sm-3 col-form-label">Gender</label>
+                        <label for="weight" class="col-sm-3 col-form-label">Weight</label>
                         <div class="col-sm-9">
                           <input type="weight" class="form-control" id="weight" placeholder="Enter the User Weight"
-                                 v-model="userData.weight" autocomplete="weight" required>
+                                 v-model="userData.weight" autocomplete="weight" required disabled>
                         </div>
                       </div>
                     </div>
                   </div>
-
                 </form>
               </div>
             </div>
