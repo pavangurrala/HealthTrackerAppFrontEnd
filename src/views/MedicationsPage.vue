@@ -60,7 +60,7 @@
               </div>
             </td>
             <td>
-              <!-- Update Icon -->
+
               <div v-if="rowBeingEdited === medication.id">
                 <button class="btn btn-success btn-sm me-2" @click="updateMedication">Update</button>
                 <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -71,7 +71,7 @@
                     style="cursor: pointer"
                     @click="editMedication(medication)"
                 ></i>
-                <!-- Delete Icon -->
+
                 <i
                     class="bi bi-trash text-danger"
                     style="cursor: pointer"
@@ -144,7 +144,7 @@
                   </div>
                 </td>
                 <td>
-                  <!-- Update Icon -->
+
                   <div v-if="rowBeingEdited === medication.id">
                     <button class="btn btn-success btn-sm me-2" @click="updateSearchMedication">Update</button>
                     <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -155,7 +155,7 @@
                         style="cursor: pointer"
                         @click="editMedication(medication)"
                     ></i>
-                    <!-- Delete Icon -->
+
                     <i
                         class="bi bi-trash text-danger"
                         style="cursor: pointer"
@@ -304,7 +304,7 @@ export default {
       try{
         let response;
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         switch (this.actiontype){
@@ -334,7 +334,7 @@ export default {
     async updateMedication(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications,{headers});
@@ -351,7 +351,7 @@ export default {
     async updateSearchMedication(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications,{headers});
@@ -400,7 +400,7 @@ export default {
       }
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`${this.apibaseUrl}/api/medicationtracker/${this.selectedUserID}`,{headers});
@@ -419,13 +419,13 @@ export default {
     },
     editMedication(medication) {
       this.rowBeingEdited = medication.id;
-      this.editableMedications = { ...medication }; // Clone the user data
+      this.editableMedications = { ...medication };
     },
 
-    // Cancel editing
+
     cancelEdit() {
       this.rowBeingEdited = null;
-      this.editableMedications = {}; // Clear the editableUser object
+      this.editableMedications = {};
     },
   },
   name:"UserMedications",

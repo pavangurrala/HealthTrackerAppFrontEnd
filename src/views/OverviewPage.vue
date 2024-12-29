@@ -141,7 +141,7 @@
                         </div>
                       </td>
                       <td>
-                        <!-- Update Icon -->
+
                         <div v-if="rowBeingEdited === activity.id">
                           <button class="btn btn-success btn-sm me-2" @click="updateSearchedActivity">Update</button>
                           <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -152,7 +152,7 @@
                               style="cursor: pointer"
                               @click="editActivity(activity)"
                           ></i>
-                          <!-- Delete Icon -->
+
                           <i
                               class="bi bi-trash text-danger"
                               style="cursor: pointer"
@@ -261,7 +261,7 @@
                         </div>
                       </td>
                       <td>
-                        <!-- Update Icon -->
+
                         <div v-if="rowBeingEditedA === appointment.id">
                           <button class="btn btn-success btn-sm me-2" @click="updateSearchAppointment">Update</button>
                           <button class="btn btn-success btn-sm me-2" @click="cancelEditA">Cancel</button>
@@ -272,7 +272,7 @@
                               style="cursor: pointer"
                               @click="editAppointment(appointment)"
                           ></i>
-                          <!-- Delete Icon -->
+
                           <i
                               class="bi bi-trash text-danger"
                               style="cursor: pointer"
@@ -356,7 +356,7 @@
                       </div>
                     </td>
                     <td>
-                      <!-- Update Icon -->
+
                       <div v-if="rowBeingEditedM === medication.id">
                         <button class="btn btn-success btn-sm me-2" @click="updateMedication">Update</button>
                         <button class="btn btn-success btn-sm me-2" @click="cancelEditM">Cancel</button>
@@ -367,7 +367,7 @@
                             style="cursor: pointer"
                             @click="editMedication(medication)"
                         ></i>
-                        <!-- Delete Icon -->
+
                         <i
                             class="bi bi-trash text-danger"
                             style="cursor: pointer"
@@ -440,7 +440,7 @@
                       </div>
                     </td>
                     <td>
-                      <!-- Update Icon -->
+
                       <div v-if="rowBeingEditedL === labreport.id">
                         <button class="btn btn-success btn-sm me-2" @click="updateLabReport">Update</button>
                         <button class="btn btn-success btn-sm me-2" @click="cancelEditL">Cancel</button>
@@ -451,7 +451,7 @@
                             style="cursor: pointer"
                             @click="editLabReports(labreport)"
                         ></i>
-                        <!-- Delete Icon -->
+
                         <i
                             class="bi bi-trash text-danger"
                             style="cursor: pointer"
@@ -543,7 +543,7 @@
                       </div>
                     </td>
                     <td>
-                      <!-- Update Icon -->
+
                       <div v-if="rowBeingEditedN === ncrecord.id">
                         <button class="btn btn-success btn-sm me-2" @click="updateNCReport">Update</button>
                         <button class="btn btn-success btn-sm me-2" @click="cancelEditN">Cancel</button>
@@ -554,7 +554,7 @@
                             style="cursor: pointer"
                             @click="editNCRecords(ncrecord)"
                         ></i>
-                        <!-- Delete Icon -->
+
                         <i
                             class="bi bi-trash text-danger"
                             style="cursor: pointer"
@@ -767,7 +767,7 @@ export default {
     async updateSearchedActivity() {
       try {
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/activities/${this.editableActivity.id}`, this.editableActivity, {headers});
@@ -784,7 +784,7 @@ export default {
     async updateSearchAppointment() {
       try {
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments, {headers});
@@ -801,7 +801,7 @@ export default {
     async updateMedication() {
       try {
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/medicationtracker/${this.editableMedications.id}`, this.editableMedications, {headers});
@@ -818,7 +818,7 @@ export default {
     async updateLabReport() {
       try {
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/labreports/${this.editableLabreports.id}`, this.editableLabreports, {headers});
@@ -835,7 +835,7 @@ export default {
     async updateNCReport() {
       try {
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords, {headers});
@@ -934,49 +934,49 @@ export default {
     },
     editActivity(activity) {
       this.rowBeingEdited = activity.id;
-      this.editableActivity = {...activity}; // Clone the user data
+      this.editableActivity = {...activity};
     },
 
-    // Cancel editing
+
     cancelEdit() {
       this.rowBeingEdited = null;
-      this.editableActivity = {}; // Clear the editableUser object
+      this.editableActivity = {};
     },
     editAppointment(appointment) {
       this.rowBeingEditedA = appointment.id;
-      this.editableAppointments = {...appointment}; // Clone the user data
+      this.editableAppointments = {...appointment};
     },
 
-    // Cancel editing
+
     cancelEditA() {
       this.rowBeingEditedA = null;
-      this.editableAppointments = {}; // Clear the editableUser object
+      this.editableAppointments = {};
     },
     editMedication(medication) {
       this.rowBeingEditedM = medication.id;
-      this.editableMedications = {...medication}; // Clone the user data
+      this.editableMedications = {...medication};
     },
 
-    // Cancel editing
+
     cancelEditM() {
       this.rowBeingEditedM = null;
-      this.editableMedications = {}; // Clear the editableUser object
+      this.editableMedications = {};
     },
     editLabReports(labreports) {
       this.rowBeingEditedL = labreports.id;
-      this.editableLabreports = {...labreports}; // Clone the user data
+      this.editableLabreports = {...labreports};
     },
     cancelEditL() {
       this.rowBeingEditedL = null;
-      this.editableLabreports = {}; // Clear the editableUser object
+      this.editableLabreports = {};
     },
     editNCRecords(ncrecord) {
       this.rowBeingEditedN = ncrecord.id;
-      this.editableNCRecords = {...ncrecord}; // Clone the user data
+      this.editableNCRecords = {...ncrecord};
     },
     cancelEditN() {
       this.rowBeingEditedN = null;
-      this.editableNCRecords = {}; // Clear the editableUser object
+      this.editableNCRecords = {};
     },
   },
   name: "OverViewPage",

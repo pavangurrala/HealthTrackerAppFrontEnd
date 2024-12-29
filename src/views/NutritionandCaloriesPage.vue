@@ -69,7 +69,7 @@
               </div>
             </td>
             <td>
-              <!-- Update Icon -->
+
               <div v-if="rowBeingEdited === ncrecord.id">
                 <button class="btn btn-success btn-sm me-2" @click="updateNCReport">Update</button>
                 <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -80,7 +80,7 @@
                     style="cursor: pointer"
                     @click="editNCRecords(ncrecord)"
                 ></i>
-                <!-- Delete Icon -->
+
                 <i
                     class="bi bi-trash text-danger"
                     style="cursor: pointer"
@@ -162,7 +162,7 @@
                   </div>
                 </td>
                 <td>
-                  <!-- Update Icon -->
+
                   <div v-if="rowBeingEdited === ncrecord.id">
                     <button class="btn btn-success btn-sm me-2" @click="updateSearchNCReport">Update</button>
                     <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -173,7 +173,7 @@
                         style="cursor: pointer"
                         @click="editNCRecords(ncrecord)"
                     ></i>
-                    <!-- Delete Icon -->
+
                     <i
                         class="bi bi-trash text-danger"
                         style="cursor: pointer"
@@ -329,7 +329,7 @@ export default {
       try{
         let response;
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         switch (this.actiontype){
@@ -360,7 +360,7 @@ export default {
     async updateNCReport(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
@@ -377,7 +377,7 @@ export default {
     async updateSearchNCReport(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/nutritionandcalories/${this.editableNCRecords.id}`, this.editableNCRecords,{headers});
@@ -426,7 +426,7 @@ export default {
       }
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`${this.apibaseUrl}/api/nutritionandcalories/${this.selectedUserID}`,{headers});
@@ -445,11 +445,11 @@ export default {
     },
     editNCRecords(ncrecord) {
       this.rowBeingEdited = ncrecord.id;
-      this.editableNCRecords = { ...ncrecord }; // Clone the user data
+      this.editableNCRecords = { ...ncrecord };
     },
     cancelEdit() {
       this.rowBeingEdited = null;
-      this.editableNCRecords = {}; // Clear the editableUser object
+      this.editableNCRecords = {};
     },
   },
 

@@ -85,7 +85,7 @@
                 </div>
               </td>
               <td>
-                <!-- Update Icon -->
+
                 <div v-if="rowBeingEdited === appointment.id">
                   <button class="btn btn-success btn-sm me-2" @click="updateAppointment">Update</button>
                   <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -96,7 +96,7 @@
                       style="cursor: pointer"
                       @click="editAppointment(appointment)"
                   ></i>
-                  <!-- Delete Icon -->
+
                   <i
                       class="bi bi-trash text-danger"
                       style="cursor: pointer"
@@ -191,7 +191,7 @@
                     </div>
                   </td>
                   <td>
-                    <!-- Update Icon -->
+
                     <div v-if="rowBeingEdited === appointment.id">
                       <button class="btn btn-success btn-sm me-2" @click="updateSearchAppointment">Update</button>
                       <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -202,7 +202,7 @@
                           style="cursor: pointer"
                           @click="editAppointment(appointment)"
                       ></i>
-                      <!-- Delete Icon -->
+
                       <i
                           class="bi bi-trash text-danger"
                           style="cursor: pointer"
@@ -387,7 +387,7 @@ export default {
       try{
         let response;
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         switch (this.actiontype){
@@ -418,7 +418,7 @@ export default {
     async updateAppointment(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
@@ -435,7 +435,7 @@ export default {
     async updateSearchAppointment(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/appointmentscheduler/${this.editableAppointments.id}`, this.editableAppointments,{headers});
@@ -484,7 +484,7 @@ export default {
       }
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`${this.apibaseUrl}/api/appointmentscheduler/${this.selectedUserID}`,{headers});
@@ -503,13 +503,13 @@ export default {
     },
     editAppointment(appointment) {
       this.rowBeingEdited = appointment.id;
-      this.editableAppointments = { ...appointment }; // Clone the user data
+      this.editableAppointments = { ...appointment };
     },
 
-    // Cancel editing
+
     cancelEdit() {
       this.rowBeingEdited = null;
-      this.editableAppointments = {}; // Clear the editableUser object
+      this.editableAppointments = {};
     },
   },
   name:"UserAppointments",

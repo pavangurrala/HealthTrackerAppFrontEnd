@@ -59,7 +59,7 @@
               </div>
             </td>
             <td>
-              <!-- Update Icon -->
+
               <div v-if="rowBeingEdited === activity.id">
                 <button class="btn btn-success btn-sm me-2" @click="updateActivity">Update</button>
                 <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -70,7 +70,7 @@
                     style="cursor: pointer"
                     @click="editActivity(activity)"
                 ></i>
-                <!-- Delete Icon -->
+
                 <i
                     class="bi bi-trash text-danger"
                     style="cursor: pointer"
@@ -94,7 +94,7 @@
                     <input type="text" class="form-control" id="description" placeholder="Enter the activity" v-model="data.description" autocomplete="description" required>
                   </div>
                 </div>
-                <!-- Name Field -->
+
                 <div class="row mb-3">
                   <label for="duration" class="col-sm-4 col-form-label">Duration</label>
                   <div class="col-sm-8">
@@ -209,7 +209,7 @@
                     </div>
                   </td>
                   <td>
-                    <!-- Update Icon -->
+
                     <div v-if="rowBeingEdited === activity.id">
                       <button class="btn btn-success btn-sm me-2" @click="updateSearchedActivity">Update</button>
                       <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -220,7 +220,7 @@
                           style="cursor: pointer"
                           @click="editActivity(activity)"
                       ></i>
-                      <!-- Delete Icon -->
+
                       <i
                           class="bi bi-trash text-danger"
                           style="cursor: pointer"
@@ -285,19 +285,19 @@ export default {
     },
     editActivity(activity) {
       this.rowBeingEdited = activity.id;
-      this.editableActivity = { ...activity }; // Clone the user data
+      this.editableActivity = { ...activity };
     },
 
     // Cancel editing
     cancelEdit() {
       this.rowBeingEdited = null;
-      this.editableActivity = {}; // Clear the editableUser object
+      this.editableActivity = {};
     },
     async submitActivityData(){
       try{
         let response;
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         switch (this.actiontype){
@@ -327,7 +327,7 @@ export default {
     async updateActivity(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
@@ -344,7 +344,7 @@ export default {
     async updateSearchedActivity(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/activities/${this.editableActivity.id}`, this.editableActivity,{headers});
@@ -415,7 +415,7 @@ export default {
       }
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`${this.apibaseUrl}/api/activities/${this.selectedUserID}`,{headers});

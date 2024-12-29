@@ -75,7 +75,6 @@
 <!--            <td>{{user.gender}}</td>-->
 <!--            <td>{{user.dateofbirth}}</td>-->
             <td>
-              <!-- Update Icon -->
               <div v-if="rowBeingEdited === user.id">
                 <button class="btn btn-success btn-sm me-2" @click="updateUser">Update</button>
                 <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -86,7 +85,6 @@
                     style="cursor: pointer"
                     @click="editUser(user)"
                 ></i>
-                <!-- Delete Icon -->
                 <i
                     class="bi bi-trash text-danger"
                     style="cursor: pointer"
@@ -108,7 +106,6 @@
               <input type="text" class="form-control" id="id" placeholder="Enter User ID" v-model="data.id" autocomplete="id" required>
             </div>
           </div>
-          <!-- Name Field -->
           <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
@@ -245,7 +242,6 @@
                 <!--            <td>{{user.gender}}</td>-->
                 <!--            <td>{{user.dateofbirth}}</td>-->
                 <td>
-                  <!-- Update Icon -->
                   <div v-if="rowBeingEdited === user.id">
                     <button class="btn btn-success btn-sm me-2" @click="updateSearchedUser">Update</button>
                     <button class="btn btn-success btn-sm me-2" @click="cancelEdit">Cancel</button>
@@ -256,7 +252,6 @@
                         style="cursor: pointer"
                         @click="editUser(user)"
                     ></i>
-                    <!-- Delete Icon -->
                     <i
                         class="bi bi-trash text-danger"
                         style="cursor: pointer"
@@ -280,9 +275,9 @@ export default {
   data() {
     return {
       sortAscending: true,
-      data: [], // Holds the fetched data
-      rowBeingEdited: null, // Tracks the row being edited
-      editableUser: {}, // Holds the data of the user being edited
+      data: [],
+      rowBeingEdited: null,
+      editableUser: {},
       selectedUserID:"",
       showTable:false,
       userDetails: {},
@@ -320,18 +315,18 @@ export default {
     },
     editUser(user) {
       this.rowBeingEdited = user.id;
-      this.editableUser = { ...user }; // Clone the user data
+      this.editableUser = { ...user };
     },
 
     // Cancel editing
     cancelEdit() {
       this.rowBeingEdited = null;
-      this.editableUser = {}; // Clear the editableUser object
+      this.editableUser = {};
     },
     async updateUser(){
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/users/${this.editableUser.id}`, this.editableUser,{headers});
@@ -348,7 +343,7 @@ export default {
 
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.patch(`${this.apibaseUrl}/api/users/${this.editableUser.id}`, this.editableUser,{headers});
@@ -394,7 +389,7 @@ export default {
       }
       try{
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         const response = await axios.get(`${this.apibaseUrl}/api/users/${this.selectedUserID}`,{headers});
@@ -411,7 +406,7 @@ export default {
       try{
         let response;
         const headers = {
-          'Content-Type': 'application/json', // Ensure this header is set
+          'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
         };
         switch (this.actiontype){
